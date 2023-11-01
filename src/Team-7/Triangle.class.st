@@ -26,11 +26,51 @@ Triangle >> area [
     ^ p sqrt.
 ]
 
+{ #category : #'as yet unclassified' }
+Triangle >> getInstanceByRequest [
+
+	| classes answer |
+	classes := self allSubclasses select: [ :c |
+		           c respondsTo: #newByRequest  ].
+	answer := UIManager default
+		          chooseFrom: (classes collect: [ :c | c name ])
+		          values: (classes collect: [ :c | [ c newByRequest ] ])
+		          title: 'Choose your triangle'.
+	^ answer ifNotNil: [ answer value ]
+]
+
 { #category : #initialization }
 Triangle >> initialize [ 
-	side1:=2.
-	side2:=3.
-	side3:=7.
+self subclassResponsibility 
+
+]
+
+{ #category : #'instance creation' }
+Triangle >> newA: a andB: b andC: c [ 
+  ^ self 
+        side1: a;
+        side2: b;
+        side3: c.
+]
+
+{ #category : #'instance creation' }
+Triangle >> newByRequest [
+
+| string stream|
+    
+    string := UIManager default
+        request: 'Provide 3 sides of the triangle separated by space'
+        initialAnswer: '1 1 1'
+        title: 'Create a Triangle'.
+    
+    string ifNil: [ ^ nil ].
+    stream := string readStream.
+^ self
+	newA: (stream upTo: Character space) asNumber
+	andB: (stream upTo: Character space) asNumber
+	andC: stream upToEnd asNumber
+			
+
 ]
 
 { #category : #accessing }

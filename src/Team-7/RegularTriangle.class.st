@@ -40,6 +40,22 @@ RegularTriangle >> inradius [
     ^ (side / (3 raisedTo: 0.5)) / 6.
 ]
 
+{ #category : #'instance creation' }
+RegularTriangle >> newByRequest [
+
+	| string stream |
+	string := UIManager default
+		          request:
+		          'Provide side of the triangle'
+		          initialAnswer: '1'
+		          title: 'Create a Regular Triangle'.
+
+	string ifNil: [ ^ nil ].
+	stream := string readStream.
+	^ self
+		  side: (stream upTo: Character space) asNumber
+]
+
 { #category : #accessing }
 RegularTriangle >> perimeter [
     "Розрахунок периметра правильного трикутника"

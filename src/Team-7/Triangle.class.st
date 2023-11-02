@@ -41,7 +41,9 @@ Triangle >> getInstanceByRequest [
 
 { #category : #initialization }
 Triangle >> initialize [ 
-self subclassResponsibility 
+side1:=2.
+  side2:=3.
+  side3:=7.
 
 ]
 

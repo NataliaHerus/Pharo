@@ -80,6 +80,12 @@ RegularTriangle >> printOn: aStream [
 	aStream nextPut: $].
 ]
 
+{ #category : #side }
+RegularTriangle >> side [
+    "Повертає довжину першої сторони трикутника"
+    ^ side.
+]
+
 { #category : #accessing }
 RegularTriangle >> side: aNumber [
     "Встановити сторону для правильного трикутника"

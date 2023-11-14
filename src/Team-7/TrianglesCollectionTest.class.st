@@ -1,10 +1,11 @@
 Class {
-	#name : #TrianglesCollectionTest,
-	#superclass : #TestCase,
-	#category : #'Team-7'
+	#name : 'TrianglesCollectionTest',
+	#superclass : 'TestCase',
+	#category : 'Team-7',
+	#package : 'Team-7'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TrianglesCollectionTest >> testAddFirst [
 
 	| triangle1 triangle2 regularTriangle3 triangles |
@@ -22,7 +23,7 @@ TrianglesCollectionTest >> testAddFirst [
 	self assert: (triangles size) equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TrianglesCollectionTest >> testAt [
 
 	| triangle1 triangle2 regularTriangle3 triangles |
@@ -47,7 +48,7 @@ TrianglesCollectionTest >> testAt [
 	self should: [ triangles at: 5 ] raise: Error.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TrianglesCollectionTest >> testAtPut [
 
 	| triangle1 triangle2 regularTriangle3 triangles |
@@ -66,7 +67,7 @@ TrianglesCollectionTest >> testAtPut [
 		raise: Error
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TrianglesCollectionTest >> testInitialize [ 
 
 	self assert: TrianglesCollection new size equals: 0

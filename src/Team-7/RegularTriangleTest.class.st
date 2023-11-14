@@ -1,10 +1,11 @@
 Class {
-	#name : #RegularTriangleTest,
-	#superclass : #TestCase,
-	#category : #'Team-7'
+	#name : 'RegularTriangleTest',
+	#superclass : 'TestCase',
+	#category : 'Team-7',
+	#package : 'Team-7'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RegularTriangleTest >> testArea [
 	
 	| triangle |
@@ -23,7 +24,7 @@ RegularTriangleTest >> testArea [
 	self assert: triangle area equals: (111 squared * (3 raisedTo: 0.5)) / 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RegularTriangleTest >> testPerimeter [
 	
 	| triangle |

@@ -2,28 +2,29 @@
 Collection for triangles
 "
 Class {
-	#name : #TrianglesCollection,
-	#superclass : #Object,
+	#name : 'TrianglesCollection',
+	#superclass : 'Object',
 	#instVars : [
 		'memory'
 	],
-	#category : #'Team-7'
+	#category : 'Team-7',
+	#package : 'Team-7'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 TrianglesCollection >> addAll: aShapeCollection [
 
 	^ memory addAll: (aShapeCollection select: [ :x | x isKindOf: Triangle ])
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TrianglesCollection >> addFirst: aShape [
 
 	self checkAnObject: aShape.
 	^ memory addFirst: aShape
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TrianglesCollection >> addFromDialog [
 
 	| shape |
@@ -31,70 +32,70 @@ TrianglesCollection >> addFromDialog [
 		memory add: shape ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TrianglesCollection >> at: anIndex [
 
 	^ memory at: anIndex
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TrianglesCollection >> at: anIndex put: aShape [
 
 	self checkAnObject: aShape.
 	^ memory at: anIndex put: aShape
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TrianglesCollection >> checkAnObject: anObject [
 
 	(anObject isKindOf: Triangle ) ifFalse: [
 		^ self error: 'TrianglesContainer contains only Triangle instances' ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TrianglesCollection >> do: aBlock [
 
 	memory do: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TrianglesCollection >> greatestArea [
 
 	^ memory inject: (memory at: 1) into: [ :s  :x | s area max: x area]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TrianglesCollection >> initialize [ 
 
 	memory:= OrderedCollection new.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TrianglesCollection >> loadFromCodeFile: pathString [
 pathString asFileReference readStreamDo: [ :in |
 	^ Smalltalk compiler evaluate: in contents ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TrianglesCollection >> loadFromStonFile: pathString [
 pathString asFileReference readStreamDo: [ :in |
 	^ Smalltalk compiler evaluate: in contents ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TrianglesCollection >> loadFromStoneFile: pathString [
 pathString asFileReference readStreamDo: [ :in |
 	^ (STON reader on: in) next ]
 ]
 
-{ #category : #'class factory' }
+{ #category : 'class factory' }
 TrianglesCollection >> ofType: aType [
 
 	^ self class new addAll: (memory select: [ :x | x isMemberOf: aType ]); yourself 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TrianglesCollection >> pickFileAndLoad: pattern [
 
 	|pathString|
@@ -109,7 +110,7 @@ TrianglesCollection >> pickFileAndLoad: pattern [
 				 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 TrianglesCollection >> printOn: aStream [
 
 	super printOn: aStream.
@@ -122,27 +123,27 @@ TrianglesCollection >> printOn: aStream [
 		aStream nextPut: Character cr ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 TrianglesCollection >> printToFile: pathString [
 
 	pathString asFileReference writeStreamDo: [ :out |
 		out nextPutAll: self printString ]
 ]
 
-{ #category : #files }
+{ #category : 'files' }
 TrianglesCollection >> saveToFile: pathString [
 
 	pathString asFileReference writeStreamDo: [ :out |
 		out nextPutAll: (STON toString: self) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TrianglesCollection >> size [
 
 	^ memory size
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TrianglesCollection >> storeToFile: pathString [
 
 	pathString asFileReference writeStreamDo: [ :out |

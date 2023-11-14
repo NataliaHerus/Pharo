@@ -1,10 +1,11 @@
 Class {
-	#name : #TriangleTest,
-	#superclass : #TestCase,
-	#category : #'Team-7'
+	#name : 'TriangleTest',
+	#superclass : 'TestCase',
+	#category : 'Team-7',
+	#package : 'Team-7'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TriangleTest >> testArea [
 
 	self assert: (Triangle newA: 3 andB: 4 andC: 5) area equals: 6.
@@ -13,7 +14,7 @@ TriangleTest >> testArea [
 	self assert: (Triangle newA: 8 andB: 15 andC: 17) area equals: 60.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TriangleTest >> testInitialize [
 
 	| triangle |
@@ -23,7 +24,7 @@ TriangleTest >> testInitialize [
 	self assert: triangle side3 equals: 7.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TriangleTest >> testPerimeter [
 
 	self assert: (Triangle newA: 3 andB: 4 andC: 5) perimeter equals: 12.

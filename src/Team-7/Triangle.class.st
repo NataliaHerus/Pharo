@@ -2,22 +2,23 @@
 Representation of Triangle class
 "
 Class {
-	#name : #Triangle,
-	#superclass : #Object,
+	#name : 'Triangle',
+	#superclass : 'Object',
 	#instVars : [
 		'side1',
 		'side2',
 		'side3'
 	],
-	#category : #'Team-7'
+	#category : 'Team-7',
+	#package : 'Team-7'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Triangle class >> newA: a andB: b andC: c [
 	^ self basicNew side1: a; side2: b; side3: c.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Triangle >> area [
     "Повертає площу трикутника, використовуючи формулу Герона"
     | s p |
@@ -26,7 +27,7 @@ Triangle >> area [
     ^ p sqrt.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Triangle >> getInstanceByRequest [
 
 	| classes answer |
@@ -39,7 +40,7 @@ Triangle >> getInstanceByRequest [
 	^ answer ifNotNil: [ answer value ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Triangle >> initialize [ 
 side1:=2.
   side2:=3.
@@ -47,7 +48,14 @@ side1:=2.
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'initialization' }
+Triangle >> initialize: aSide1 and: aSide2 and: aSide3 [
+        side1 := aSide1.
+        side2 := aSide2.
+        side3 := aSide3.
+]
+
+{ #category : 'instance creation' }
 Triangle >> newA: a andB: b andC: c [ 
   ^ self 
         side1: a;
@@ -55,7 +63,7 @@ Triangle >> newA: a andB: b andC: c [
         side3: c.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Triangle >> newByRequest [
 
 | string stream|
@@ -75,19 +83,19 @@ Triangle >> newByRequest [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Triangle >> perimeter [
     "Повертає периметр трикутника"
     ^ side1 + side2 + side3.
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Triangle >> print [
     "Метод для виведення трикутника на екран"
     self printOn: Transcript.
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Triangle >> printOn: aStream [
     "Метод для виведення трикутника в потік"
     aStream nextPutAll: 'A Triangle ['.
@@ -99,37 +107,45 @@ Triangle >> printOn: aStream [
 	aStream nextPut: $].
 ]
 
-{ #category : #accessing }
+{ #category : 'printing' }
+Triangle >> printTriangle [
+    "Print the information about the triangle"
+    | infoString |
+    infoString := 'Triangle - Side1: ', side1 printString, ' Side2: ', side2 printString, ' Side3: ', side3 printString.
+    Transcript show: infoString; cr.
+]
+
+{ #category : 'accessing' }
 Triangle >> side1 [
     "Повертає довжину першої сторони трикутника"
     ^ side1.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Triangle >> side1: aNumber [
 
 	side1 := 0.1 max: aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Triangle >> side2 [
     "Повертає довжину другої сторони трикутника"
     ^ side2.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Triangle >> side2: aNumber [
 
 	side2 := 0.1 max: aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Triangle >> side3 [
     "Повертає довжину другої сторони трикутника"
     ^ side3.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Triangle >> side3: aNumber [
 
 	side3 := 0.1 max: aNumber
